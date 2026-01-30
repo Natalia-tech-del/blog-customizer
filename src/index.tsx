@@ -16,12 +16,11 @@ const root = createRoot(domNode);
 
 const App = () => {
 	const [articleState, setArticleState] = useState(defaultArticleState);
+	const [isOpen, setIsOpen] = useState(false);
 
 	function onChangeState(newArticleState: ArticleStateType) {
 		setArticleState(newArticleState);
 	}
-
-	const [isOpen, setIsOpen] = useState(false);
 
 	 const toggle = () => {
     	(isOpen)? setIsOpen(false): setIsOpen(true);
@@ -39,7 +38,7 @@ const App = () => {
 					'--bg-color': articleState.backgroundColor.value,
 				} as CSSProperties
 			}>
-			<ArticleParamsForm isOpen = {isOpen} toggle = {toggle} stateValue = {articleState} onChangeState = {onChangeState} />
+			<ArticleParamsForm isOpen = {isOpen} toggle = {toggle} valueArticleState = {articleState} onChangeArticleState = {onChangeState} />
 			<Article />
 		</main>
 	);
